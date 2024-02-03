@@ -18,11 +18,16 @@ public class BookController {
         service.addBook(book);
     }
 
+    @PostMapping
+    public void editBook(@RequestBody Book book){
+        service.updateBook(book);
+    }
+
     @DeleteMapping
     public void deleteBook(@RequestBody Book book){
         service.deleteBook(book);
     }
 
-    @DeleteMapping
+    @GetMapping
     public List<Book> getBooks(){return service.getAll();}
 }

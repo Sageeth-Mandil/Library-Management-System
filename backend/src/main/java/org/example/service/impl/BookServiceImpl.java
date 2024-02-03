@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -18,12 +20,19 @@ public class BookServiceImpl implements BookService {
     BookRepository repository;
 
     ModelMapper mapper;
+
     @Bean
     public void setup(){
         this.mapper=new ModelMapper();
     }
     @Override
     public void addBook(Book book) {
+        BookEntity entity = mapper.map(book, BookEntity.class);
+        repository.save(entity);
+    }
+
+    @Override
+    public void updateBook(Book book) {
         BookEntity entity = mapper.map(book, BookEntity.class);
         repository.save(entity);
     }
@@ -36,21 +45,16 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAll() {
-        Iterable<BookEntity> iterable;
-        iterable = repository.findAll();
-        Iterator iterator = new Iterator() {
-            @Override
-            public boolean hasNext() {
-                return false;
-            }
+        List<Book> list = new ArrayList<>();
+        Iterable<BookEntity> itemEntityList = repository.findAll();
+        Iterator<BookEntity> iterator = itemEntityList.iterator();
 
-            @Override
-            public Object next() {
-                return null;
-            }
-        };
+        while(iterator.hasNext()){
+            BookEntity itemEntity1 = iterator.next();
+            Book item = mapper.map(itemEntity1, Book.class);
+            list.add(item);
+        }
 
-
-        return null;
+        return list;
     }
 }
