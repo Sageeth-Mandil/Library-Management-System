@@ -1,0 +1,41 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="isIgnoringEnabled" value="true" />
+      <option name="ignoredModules">
+        <list>
+          <option value="library-managemant-system-sv" />
+          <option value="library-managemant-system-sv" />
+          <option value="library-managemant-system-sv" />
+          <option value="library-managemant-system-sv" />
+          <option value="library-managemant-system-sv" />
+          <option value="library-managemant-system-sv" />
+          <option value="library-managemant-system-sv" />
+        </list>
+      </option>
+      <option name="ignoredPackages">
+        <list>
+          <option value="ch.qos.logback:logback-classic:1.4.11" />
+          <option value="ch.qos.logback:logback-core:1.4.11" />
+          <option value="org.apache.tomcat.embed:tomcat-embed-core:10.1.15" />
+          <option value="org.springframework.boot:spring-boot:3.1.5" />
+          <option value="org.springframework:spring-core:6.0.13" />
+          <option value="org.springframework:spring-web:6.0.13" />
+          <option value="org.yaml:snakeyaml:1.33" />
+        </list>
+      </option>
+      <option name="ignoredReasons">
+        <list>
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="In progress" />
+          <option value="Fixed in branch" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

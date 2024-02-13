@@ -13,21 +13,21 @@ public class BookController {
     @Autowired
     BookService service;
 
-    @PostMapping("/add")
+    @PostMapping
     public void addBook(@RequestBody Book book){
         service.addBook(book);
     }
 
-    @PostMapping("/edit")
+    @PostMapping
     public void editBook(@RequestBody Book book){
         service.updateBook(book);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping
     public void deleteBook(@RequestBody Book book){
         service.deleteBook(book);
     }
 
-    @GetMapping("/get")
+    @GetMapping
     public List<Book> getBooks(){return service.getAll();}
 }
